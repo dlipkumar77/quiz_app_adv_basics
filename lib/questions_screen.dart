@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import './answer_button.dart';
 
 class QuestionsScreen extends StatefulWidget {
   const QuestionsScreen({super.key});
@@ -14,23 +15,29 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text('What are the main building blocks of Flutter UIs?'),
+          Text(
+            'What are the main building blocks of Flutter UIs?',
+            style: TextStyle(color: Colors.white),
+          ),
           SizedBox(height: 20),
-          ElevatedButton(
-            onPressed: () {},
-            child: Text('Widgets'),
+          AnswerButton(
+            answerText: 'Widgets',
+            onTap: () {},
           ),
-          ElevatedButton(
-            onPressed: () {},
-            child: Text('Blocks'),
+          SizedBox(height: 20),
+          AnswerButton(
+            answerText: 'Classes',
+            onTap: () {},
           ),
-          ElevatedButton(
-            onPressed: () {},
-            child: Text('Bricks'),
+          SizedBox(height: 20),
+          AnswerButton(
+            answerText: 'Modules',
+            onTap: () {},
           ),
-          ElevatedButton(
-            onPressed: () {},
-            child: Text('Pieces'),
+          SizedBox(height: 20),
+          AnswerButton(
+            answerText: 'Packages',
+            onTap: () {},
           ),
         ],
       ),
