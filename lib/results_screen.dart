@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:quiz_app_adv_basics/questions_summary.dart';
 import './data/questions.dart';
+import './results_screen.dart';
 
 class ResultsScreen extends StatelessWidget {
   const ResultsScreen({
@@ -37,7 +39,8 @@ class ResultsScreen extends StatelessWidget {
             SizedBox(
               height: 20,
             ),
-            Text('List of questions and answers'),
+            //getSummary does not want any function value, its reutrn list of map that's why we use getSummary() not getsummary
+            QuestionsSummary(getSummary()),
             SizedBox(
               height: 20,
             ),
