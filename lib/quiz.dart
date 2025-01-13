@@ -40,6 +40,13 @@ class _QuizState extends State<Quiz> {
     }
   }
 
+  void restartScreen() {
+    setState(() {
+      selectedAnswers = [];
+      activeScreen = 'questions-screen';
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     Widget screenWidget = StartScreen(switchScreen);
@@ -56,6 +63,7 @@ class _QuizState extends State<Quiz> {
     if (activeScreen == 'results-screen') {
       screenWidget = ResultsScreen(
         choosenAnswers: selectedAnswers,
+        reStartQuiz: restartScreen,
       );
     }
 

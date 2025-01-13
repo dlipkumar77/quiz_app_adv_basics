@@ -7,9 +7,11 @@ class ResultsScreen extends StatelessWidget {
   const ResultsScreen({
     super.key,
     required this.choosenAnswers,
+    required this.reStartQuiz,
   });
 
   final List<String> choosenAnswers;
+  final void Function() reStartQuiz;
 
   List<Map<String, Object>> getSummary() {
     final List<Map<String, Object>> summary = [];
@@ -37,12 +39,18 @@ class ResultsScreen extends StatelessWidget {
     return SizedBox(
       width: double.infinity,
       child: Container(
-        margin: EdgeInsets.all(40),
+        margin: EdgeInsets.all(20),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-                'You answered $numCorrectAnswers out of $numTotalQuestions questions correctly!'),
+              'You answered $numCorrectAnswers out of $numTotalQuestions questions correctly!',
+              style: const TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                color: Colors.white, // Couleur blanche
+              ),
+            ),
             SizedBox(
               height: 20,
             ),
@@ -51,7 +59,22 @@ class ResultsScreen extends StatelessWidget {
             SizedBox(
               height: 20,
             ),
-            TextButton(onPressed: () {}, child: Text('Restart Quiz')),
+            TextButton.icon(
+              onPressed: reStartQuiz,
+              //onPressed: () {},
+              icon: const Icon(Icons.refresh, color: Colors.white),
+              label: Text(
+                'Restart Quiz',
+                style: TextStyle(color: Colors.white),
+              ),
+              style: TextButton.styleFrom(
+                backgroundColor: Colors.purple,
+                padding: EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20),
+                ),
+              ),
+            ),
           ],
         ),
       ),
