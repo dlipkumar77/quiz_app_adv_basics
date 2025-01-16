@@ -21,9 +21,15 @@ class QuestionsSummary extends StatelessWidget {
                   Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
                 CircleAvatar(
                     radius: 15,
-                    backgroundColor: isCorrect ? Colors.green : Colors.red,
-                    child:
-                        Text(((data['question_index'] as int) + 1).toString())),
+                    backgroundColor: isCorrect
+                        ? const Color.fromARGB(255, 150, 198, 241)
+                        : const Color.fromARGB(255, 249, 133, 241),
+                    child: Text(
+                      ((data['question_index'] as int) + 1).toString(),
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: const Color.fromARGB(255, 23, 2, 56)),
+                    )),
                 SizedBox(width: 10),
                 Expanded(
                   child: Column(
@@ -41,13 +47,17 @@ class QuestionsSummary extends StatelessWidget {
                       Text(
                         'Your Answer: ${data['user_answer']}',
                         style: TextStyle(
-                          color: isCorrect ? Colors.green : Colors.red,
+                          color: Color.fromARGB(255, 249, 133, 241),
                         ),
+                        // style: TextStyle(
+                        //   color: isCorrect ? Colors.purpleAccent : Colors.pinkAccent,
+                        // ),
                       ),
                       SizedBox(height: 3),
                       Text(
                         'Correct answer: ${data['correct_answer']}',
-                        style: const TextStyle(color: Colors.blue),
+                        style: const TextStyle(
+                            color: Color.fromARGB(255, 150, 198, 241)),
                       ),
                     ],
                   ),
